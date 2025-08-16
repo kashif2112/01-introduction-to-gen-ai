@@ -1,21 +1,11 @@
 # 2. Generative vs. Discriminative Models
-
 Generative AI is built on **generative models**, but what does this term actually mean, and how do generative approaches differ from more familiar discriminative models?  This section clarifies the distinction and explains why it matters.
-
 ## Generative models
-
-Generative algorithms attempt to **model the joint probability distribution** of input features and labels.  According to a comparison by GeeksforGeeks, generative models are designed to simulate the joint probability distribution \(P(X, Y)\) and learn the underlying data distribution【390840734029125†L176-L187】.  After learning this distribution, they can sample from it to create **artificial data** that mirrors the training set【390840734029125†L189-L193】.  Examples include Gaussian mixture models, hidden Markov models, variational autoencoders and generative adversarial networks【390840734029125†L176-L187】.  These models estimate class‑conditional distributions \(P(X|Y)\) and class priors \(P(Y)\); the Bayes theorem then allows them to derive the posterior \(P(Y|X)\)【390840734029125†L213-L235】.
-
+Generative algorithms attempt to **model the joint probability distribution** of input features and labels.  According to a comparison by GeeksforGeeks, generative models are designed to simulate the joint probability distribution \(P(X, Y)\) and learn the underlying data distribution.  After learning this distribution, they can sample from it to create **artificial data** that mirrors the training set.  Examples include Gaussian mixture models, hidden Markov models, variational autoencoders and generative adversarial networks.  These models estimate class‑conditional distributions \(P(X|Y)\) and class priors \(P(Y)\); the Bayes theorem then allows them to derive the posterior \(P(Y|X)\).
 Because generative models capture the full data distribution, they can **generate new samples**, handle missing data and perform tasks beyond classification, such as text or image synthesis.  They are especially powerful when labelled data is scarce or expensive to obtain.
-
 ## Discriminative models
-
-Discriminative algorithms, by contrast, focus on **modeling the conditional probability** of the output labels given the input features.  In other words, they learn \(P(Y\,|\,X)\) directly without modelling how the data itself is generated.  GeeksforGeeks notes that discriminative models aim to learn the decision boundary that best distinguishes various classes【390840734029125†L239-L247】.  Common examples include logistic regression, support‑vector machines (SVMs) and standard neural networks.
-
-Because discriminative models concentrate on classification, they typically require labeled training data and excel at tasks like image classification or sentiment analysis.  However, they cannot generate new samples and may struggle when data is incomplete【390840734029125†L263-L266】.
-
+Discriminative algorithms, by contrast, focus on **modeling the conditional probability** of the output labels given the input features.  In other words, they learn \(P(Y\,|\,X)\) directly without modelling how the data itself is generated.  GeeksforGeeks notes that discriminative models aim to learn the decision boundary that best distinguishes various classes.  Common examples include logistic regression, support‑vector machines (SVMs) and standard neural networks.
+Because discriminative models concentrate on classification, they typically require labeled training data and excel at tasks like image classification or sentiment analysis.  However, they cannot generate new samples and may struggle when data is incomplete.
 ## Why the distinction matters
-
 Understanding the difference between generative and discriminative models helps clarify why generative AI has unique capabilities.  Discriminative models are well suited for tasks where the goal is to make decisions or predictions based on existing data; they are often easier to train and require less compute.  Generative models, on the other hand, open the door to **creative tasks** by modeling the underlying data distribution.  This distinction explains why generative AI can produce realistic images, write coherent text or simulate data for augmentation, whereas traditional ML models cannot.
-
 When designing AI systems, engineers often **combine** both approaches: for example, a generative model might be used to augment a dataset, while a discriminative model performs classification.  Recognizing the strengths and limitations of each type of model will help you select the right tool for a given problem.

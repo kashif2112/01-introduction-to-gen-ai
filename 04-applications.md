@@ -1,34 +1,19 @@
 # 4. Applications of Generative AI
-
 Generative AI has moved rapidly from research labs into real‑world products.  By learning data distributions and generating new content, generative models enable a wide range of applications across industries.  This section surveys some common use cases.
-
 ## 4.1 Text generation and conversational agents
-
-Large language models (LLMs) such as **GPT‑4** and **Gemini** can generate coherent paragraphs, answer questions, translate languages, compose emails and even write code.  They do this by modeling the conditional probability of the next token in a sequence using transformer architectures【312101611735595†L295-L309】.  Tools like ChatGPT showcase how generative AI can engage in open‑ended dialogue and assist with knowledge work.
-
+Large language models (LLMs) such as **GPT‑4** and **Gemini** can generate coherent paragraphs, answer questions, translate languages, compose emails and even write code.  They do this by modeling the conditional probability of the next token in a sequence using transformer architectures.  Tools like ChatGPT showcase how generative AI can engage in open‑ended dialogue and assist with knowledge work.
 ## 4.2 Image and video generation
-
-Generative AI models create images, videos and even 3‑D scenes.  Text‑to‑image systems like **DALL‑E**, **Midjourney** and **Stable Diffusion** allow users to input a textual description and receive a high‑resolution image in return.  The Databricks guide notes that diffusion models generate new imagery by starting from noise and reversing a diffusion process【312101611735595†L284-L291】.  Other applications include *style transfer*, where the content of one image is combined with the visual style of another, and *image super‑resolution* using GANs【572714771079252†L173-L186】.
-
+Generative AI models create images, videos and even 3‑D scenes.  Text‑to‑image systems like **DALL‑E**, **Midjourney** and **Stable Diffusion** allow users to input a textual description and receive a high‑resolution image in return.  The Databricks guide notes that diffusion models generate new imagery by starting from noise and reversing a diffusion process.  Other applications include *style transfer*, where the content of one image is combined with the visual style of another, and *image super‑resolution* using GANs.
 ## 4.3 Music and audio synthesis
-
-Autoregressive and transformer‑based models can compose music, emulate singers’ voices or generate realistic speech.  For example, generative models can write a song in the style of a particular composer or blend different pieces of music.  Because they generate sequences one element at a time, autoregressive models are especially suited for tasks like music composition【312101611735595†L271-L280】.
-
+Autoregressive and transformer‑based models can compose music, emulate singers’ voices or generate realistic speech.  For example, generative models can write a song in the style of a particular composer or blend different pieces of music.  Because they generate sequences one element at a time, autoregressive models are especially suited for tasks like music composition.
 ## 4.4 Code generation
-
 LLMs trained on source code can generate function bodies, suggest code completions or even build simple applications from natural‑language descriptions.  Tools like GitHub Copilot are based on transformer architectures and demonstrate how generative AI can accelerate software development.
-
 ## 4.5 Synthetic data and data augmentation
-
-Generative models are often used to **augment training datasets**.  For example, GANs and diffusion models can produce additional images to balance a class‑imbalanced dataset.  The Databricks primer notes that data augmentation through synthetic samples can improve model accuracy by increasing dataset size and diversity【312101611735595†L331-L335】.  Synthetic data generation is also valuable in privacy‑sensitive domains, where real data cannot be shared.
-
+Generative models are often used to **augment training datasets**.  For example, GANs and diffusion models can produce additional images to balance a class‑imbalanced dataset.  The Databricks primer notes that data augmentation through synthetic samples can improve model accuracy by increasing dataset size and diversity.  Synthetic data generation is also valuable in privacy‑sensitive domains, where real data cannot be shared.
 ## 4.6 Domain‑specific applications
-
 Beyond generic content generation, generative AI is being adopted across sectors:
-
-* **Retail:** Chatbots provide personalized customer support, virtual fitting rooms visualize products on users, and generative models assist with product design and inventory management【312101611735595†L406-L413】.
-* **Financial services:** Specialized LLMs like **BloombergGPT** analyze large volumes of financial data for reporting and risk management【312101611735595†L417-L422】.  Generative models also detect fraud and synthesize realistic financial datasets for training models.
-* **Manufacturing and industrial:** Generative AI can optimize manufacturing processes, generate design prototypes and predict equipment maintenance needs【312101611735595†L426-L435】.
-* **Healthcare:** In medical imaging, GANs convert MRI scans to CT scans【572714771079252†L166-L174】 and diffusion models create synthetic datasets for training.  Generative models also aid drug discovery by generating candidate molecular structures.
-
+* **Retail:** Chatbots provide personalized customer support, virtual fitting rooms visualize products on users, and generative models assist with product design and inventory management.
+* **Financial services:** Specialized LLMs like **BloombergGPT** analyze large volumes of financial data for reporting and risk management.  Generative models also detect fraud and synthesize realistic financial datasets for training models.
+* **Manufacturing and industrial:** Generative AI can optimize manufacturing processes, generate design prototypes and predict equipment maintenance needs.
+* **Healthcare:** In medical imaging, GANs convert MRI scans to CT scans and diffusion models create synthetic datasets for training.  Generative models also aid drug discovery by generating candidate molecular structures.
 As research progresses, new applications continue to emerge.  The versatility of generative models lies in their ability to **create**—to produce artifacts and ideas that augment human creativity and productivity.  However, as the next section discusses, these capabilities come with important ethical considerations.
