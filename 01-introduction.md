@@ -1,0 +1,30 @@
+# 1. Introduction to Generative AI
+
+## What is generative AI?
+
+Generative artificial intelligence (GenAI) is a subfield of artificial intelligence focused on creating **new data** rather than only classifying or predicting existing data.  In general terms, a generative model learns the underlying patterns of its training data and uses them to produce novel outputs.  The **Wikipedia** entry on generative AI notes that these systems use *generative models* to produce text, images, videos and other forms of data【620050823427852†L273-L281】.  The models learn the statistical structure of their training data and can be prompted to produce new data that resembles the original distribution【620050823427852†L273-L281】.
+
+The **V7 Labs** guide explains that generative AI leverages machine‑learning models—particularly unsupervised and semi‑supervised algorithms—to understand underlying patterns and generate new content【572714771079252†L124-L132】.  Neural networks play a central role: they process input data and learn latent representations that allow the model to generate images, text, audio or other outputs【572714771079252†L124-L132】.  Because the technology can create new artifacts that do not explicitly exist in the training set, it is sometimes referred to as *creative AI*.
+
+### Key characteristics
+
+* **Pattern learning:** Generative models internalize the structure of their training data and learn probability distributions over possible outputs.  They are trained to approximate the joint distribution of inputs and outputs (or, for models without labels, to model the data distribution itself).
+* **Content creation:** After training, these models can produce novel content—texts, images, code snippets, music or 3‑D designs—based on prompts.  For example, transformer‑based models such as GPT‑4 can generate coherent paragraphs of text, while diffusion models can create photorealistic images from random noise.
+* **Unsupervised and semi‑supervised training:** Unlike traditional discriminative models that require labelled data, many generative models are trained using unsupervised or semi‑supervised techniques.  This reduces the need for manual labelling and allows them to leverage large unstructured datasets【620050823427852†L348-L370】.
+
+## How does generative AI work?
+
+At a high level, generative AI systems learn a probabilistic model of their input data and then sample from this model to generate new data points.  Deep learning has made these models practical: the Databricks primer notes that the shift toward deep learning enables AI models to handle complex data such as natural language and images【312101611735595†L311-L323】.  Deep architectures consist of multiple layers of neurons that successively transform inputs into increasingly abstract representations.  During training, the model adjusts its internal parameters to maximize the likelihood of the observed data or to minimize a reconstruction loss.
+
+Several training paradigms are used:
+
+1. **Unsupervised learning:** The model is trained without explicit labels.  For example, variational autoencoders (VAEs) use an encoder–decoder architecture to reconstruct input data from a compressed latent space.  The latent variables capture the key factors of variation, allowing the decoder to generate new, similar data【572714771079252†L245-L271】.
+2. **Adversarial training:** Generative adversarial networks (GANs) involve a generator and a discriminator that compete: the generator tries to produce outputs that fool the discriminator, while the discriminator learns to distinguish real from synthetic samples【572714771079252†L166-L193】.  Through this adversarial process, the generator learns to produce high‑fidelity samples.
+3. **Auto‑regressive modelling:** Autoregressive models generate sequences one element at a time, conditioning each new element on previously generated elements【312101611735595†L271-L280】.  This approach is common in language modelling and music generation.
+4. **Diffusion and denoising:** Diffusion models add noise to data through a *forward diffusion* process and learn to reconstruct the data via *reverse diffusion*.  Once trained, they can generate new samples by reversing the noise process【312101611735595†L284-L291】.
+
+## A brief history
+
+The idea of algorithmic generation dates back to early 20th‑century work on **Markov chains**, which can generate probabilistic text sequences.  However, modern generative AI took off in the 2010s.  In 2014 researchers introduced **variational autoencoders** and **generative adversarial networks**, the first practical deep neural networks capable of learning full data distributions rather than just discriminative boundaries【620050823427852†L348-L360】.  The 2017 **Transformer** architecture introduced self‑attention mechanisms and paved the way for large language models such as GPT‑3 and GPT‑4【620050823427852†L361-L365】.  Public releases of tools like **DALL‑E**, **Midjourney** and **ChatGPT** in 2021–2022 brought generative AI into mainstream awareness【620050823427852†L390-L401】.
+
+Today, generative AI is used across software development, healthcare, finance, entertainment, customer service and many other industries【620050823427852†L294-L301】.  Understanding its foundations prepares you to explore these applications responsibly.
