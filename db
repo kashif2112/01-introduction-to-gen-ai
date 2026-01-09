@@ -1,9 +1,11 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, Query, HTTPException
+from pydantic import BaseModel
+from typing import List, Optional
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
 # -----------------------------
-# CONFIG — change only this
+# DATABASE CONFIG
 # -----------------------------
 DB_CONFIG = {
     "dbname": "vector_db",
@@ -16,22 +18,54 @@ DB_CONFIG = {
 TABLE_NAME = "langchain_pg_embedding"
 
 # -----------------------------
-# APP
+# FASTAPI APP
 # -----------------------------
-app = FastAPI(title="LangChain PGVector Inventory API")
+app = FastAPI(
+    title="Team Ingestion Inventory API",
+    description="Swagger API to fetch all ingested pages for a given team from LangChain PGVector",
+    version="1.0.0",
+)
+
+# -----------------------------
+# MODELS (Swagger-visible)
+# -----------------------------
+class Page(BaseModel):
+    source: Optional[str]
+    page: Optional[str]
+
+
+class PagesResponse(BaseModel):
+    team_name: str
+    total_pages: int
+    pages: List[Page]
+
 
 def get_connection():
     return psycopg2.connect(**DB_CONFIG)
 
 
-@app.get("/teams/{team_name}/pages")
-def get_ingested_pages(team_name: str):
+# -----------------------------
+# SWAGGER ENDPOINT
+# -----------------------------
+@app.get(
+    "/pages",
+    response_model=PagesResponse,
+    summary="Get all ingested pages for a team",
+    description="Fetches the list of document pages ingested for the given team_name",
+)
+def get_pages_for_team(
+    team_name: str = Query(
+        ...,
+        description="Team name used during ingestion (stored in cmetadata.team_name)",
+        example="payments",
+    )
+):
     query = f"""
         SELECT DISTINCT
-            metadata->>'source' AS source,
-            metadata->>'page'   AS page
+            cmetadata->>'source' AS source,
+            cmetadata->>'page'   AS page
         FROM {TABLE_NAME}
-        WHERE metadata->>'team' = %s
+        WHERE cmetadata->>'team_name' = %s
         ORDER BY source, page;
     """
 
@@ -46,11 +80,11 @@ def get_ingested_pages(team_name: str):
     if not rows:
         raise HTTPException(
             status_code=404,
-            detail=f"No pages found for team '{team_name}'"
+            detail=f"No pages found for team_name='{team_name}'"
         )
 
     return {
-        "team": team_name,
+        "team_name": team_name,
         "total_pages": len(rows),
-        "pages": rows
+        "pages": rows,
     }
